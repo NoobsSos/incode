@@ -100,7 +100,7 @@ function Main() {
 
           <input type="text" value={tableName} onChange={handleInputChange} placeholder="Search" className={styles.search} />
             <button onClick={() => createOrLoadTable(tableName)} className={styles.button_search}>Create or Load table</button>
-            { currentTable.name == "" && <button onClick={() => dispatch(tableActions.closeTable())} className={styles.button_close}>Close table</button> }
+            { currentTable.name && <button onClick={() => dispatch(tableActions.closeTable())} className={styles.button_close}>Close table</button> }
         </div>
       </header>
 
