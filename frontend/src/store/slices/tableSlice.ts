@@ -28,6 +28,9 @@ const tableSlice = createSlice({
         setTable: (state, action) => {
             state.currentTable = action.payload;
           },
+        closeTable: (state) => {
+            state.currentTable = initialState.currentTable;
+        }
     },
 })
 
