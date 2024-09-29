@@ -19,7 +19,7 @@ function Main() {
   const dispatch = useAppDispatch()
 
   const taskState = useAppSelector((state) => state.task)
-  const currentTable = useAppSelector((state) => state.table.currentTable)
+  const currentTable = useAppSelector((state) => state.table.currentTable) || null
   const modal = useAppSelector((state) => state.task.modal)
 
   useEffect(() => { 
@@ -104,7 +104,9 @@ function Main() {
         </div>
       </header>
 
-      <div className={styles.content}>
+    { currentTable.name == "" && <div className={styles.startup_title}><h1>Create or Load a table</h1></div> }
+
+     {currentTable.name && <div className={styles.content}>
         <div className={styles.columns_container}>
                 <div className={styles.column}>
                 <h2 className={styles.column_title}>To do</h2>
@@ -162,7 +164,7 @@ function Main() {
                 </div>
               </div>
         </div>
-      </div>
+      </div>}
       {modal === "create" && <div className={styles.overlay}></div>}
       {modal && modal === "create" && <div className={styles.center}><ModalCreate closeModal={() => dispatch(taskActions.setModal(''))} status={status}/></div>}
     </div>

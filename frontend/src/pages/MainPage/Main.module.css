@@ -202,6 +202,14 @@ button, input[type="submit"], input[type="reset"] {
     z-index: 2;
 }
 
+.startup_title {
+    font-size: 2rem;
+    color: rgb(70, 69, 69);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .overlay {
     position: fixed;
     top: 0;
