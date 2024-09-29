@@ -21,8 +21,13 @@ export class TaskService {
     return this.Task.findById(taskID);
   }
 
-  async deleteTask(taskID): Promise<ITask> {
-    return this.Task.findByIdAndRemove(taskID);
+  async deleteTask(taskID: string): Promise<ITask> {
+    try {
+      const deletedTask = await this.Task.findByIdAndDelete(taskID).exec();
+      return deletedTask;
+    } catch (error) {
+      throw new Error(`Could not delete task: ${error.message}`);
+    }
   }
 
   async updateTask(taskID, createTaskDto: CreateTaskDto): Promise<ITask> {

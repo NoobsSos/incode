@@ -1,4 +1,4 @@
-.title {
+* {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -122,17 +122,23 @@ button, input[type="submit"], input[type="reset"] {
     transition: background-color 0.3s;
 }
 
+.card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
 .card_title {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     color: rgb(70, 69, 69);
 
-    padding-bottom: 15px;
-    margin: 5px 0;
+    /* padding-bottom: 15px; */
+    /* margin: 5px 0; */
     width: 180px;
 
     word-wrap: break-word;
-
 }
 
 .card_description {
@@ -171,6 +177,17 @@ button, input[type="submit"], input[type="reset"] {
     text-align: left; 
 
     margin-top: 5px;
+}
+
+.button_search {
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 9rem;
+
+    background-color: #5d6481;
+    color: #fff;
 }
 
 .center {

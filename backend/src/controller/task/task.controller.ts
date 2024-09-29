@@ -45,7 +45,9 @@ export class TaskController {
     @Delete(':taskID')
     async deleteTask(@Res() response, @Param('taskID') taskID) {
         try {
+            console.log(taskID);
             const task = await this.taskService.deleteTask(taskID);
+            console.log(task);
             if (!task) {
                 return response.status(HttpStatus.NOT_FOUND).json({
                     statusCode: 404,
@@ -61,7 +63,7 @@ export class TaskController {
             return response.status(HttpStatus.BAD_REQUEST).json({
                 statusCode: 400,
                 message: 'Error: Task not deleted!',
-                error: 'Bad Request'
+                error: err.message
             });
         }
     }
